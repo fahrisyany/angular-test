@@ -16,7 +16,7 @@
         <mat-card *ngIf="loading">
             Loading....
         </mat-card>
-        <section class="cards-row">
+        <section *ngIf="!loading" class="cards-row">
             <app-items *ngFor='let el of todo' [el]='el' (onDelete)="onDelete(el.id)">
             </app-items>
         </section>

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "app-root",
@@ -6,7 +6,16 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.sass"]
 })
 export class AppComponent {
-  constructor() {
-    console.log(123);
+  private _loggedIn: boolean;
+  message: string;
+
+  constructor() {}
+
+  get loggedIn() {
+    return this._loggedIn;
+  }
+  // @Input()
+  set loggedIn(value: boolean) {
+    this._loggedIn = value;
   }
 }

@@ -4,7 +4,7 @@ import { TodoService } from "../../services/todo.service";
 import { log } from "util";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { ModalComponent } from "../modal/modal.component";
-
+import { VERSION } from "@angular/compiler";
 @Component({
   selector: "app-todo",
   templateUrl: "./todo.component.html",
@@ -15,17 +15,13 @@ export class TodoComponent implements OnInit {
   limit: Number;
   loading: boolean = false;
   task: string;
-  name: string = "Ade";
+  name: string = `Angular version ${VERSION.full}`;
 
   constructor(public ts: TodoService, public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.loading = true;
+    this.handleFetchTodos();
 
-    this.ts.getTodos().subscribe(todos => {
-      this.todo = todos;
-      this.loading = false;
-    });
     this.limit = this.ts.limitNumber;
   }
 
@@ -60,7 +56,9 @@ export class TodoComponent implements OnInit {
 
     this.ts.getTodos().subscribe(todos => {
       this.todo = todos;
-      this.loading = false;
+      setTimeout(() => {
+        this.loading = false;
+      }, 2000);
     });
   }
 

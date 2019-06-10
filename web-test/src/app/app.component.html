@@ -3,8 +3,13 @@
   <h2>
     Todo App
   </h2>
+  <div>
+    <button (click)='loggedIn=true'>Log-in</button>
+    <button (click)='loggedIn=false'>Log-out</button>
+
+  </div>
   <mat-divider></mat-divider>
   <br />
   <br />
-  <app-todo></app-todo>
+  <app-todo *ngIf='loggedIn'></app-todo>
 </div>

@@ -4,6 +4,6 @@
   <mat-card>
     <input (change)="onToggle(el)" type="checkbox" name="" id="">
     {{el.title}}
-    <button (click)='onDeleteTask(el.id)'>X</button>
+    <button (click)='onDeleteTask($event)'>X</button>
   </mat-card>
 </section>
