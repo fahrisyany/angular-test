@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>Add a new task</p>
+  <mat-form-field>
+    <!-- <form (submit)="onSubmit()"> -->
+      <input matInput required [(ngModel)]="data.task">
+    <!-- </form> -->
+  </mat-form-field>
+  {{data.task}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button type="submit" [mat-dialog-close]="data.task">Ok</button>
+</div>

@@ -1,0 +1,9 @@
+<section class="todo-items" [ngClass]='setClasses()'>
+
+
+  <mat-card>
+    <input (change)="onToggle(el)" type="checkbox" name="" id="">
+    {{el.title}}
+    <button (click)='onDeleteTask(el.id)'>X</button>
+  </mat-card>
+</section>

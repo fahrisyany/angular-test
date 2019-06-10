@@ -1,0 +1,24 @@
+<div>
+    <div class="display-limit">
+        <p>
+            Display limit :
+        </p>
+        <form (submit)="onSubmit()">
+            <input type="number" name='limit' placeholder="Input your number" [(ngModel)]='limit'
+                (ngModelChange)="handleChangeLimit($event)" />
+        </form>
+    </div>
+    <div class="buttons-container">
+        <button (click)="handleRefresh()">refresh</button>
+        <button (click)="openDialog()">Add</button>
+    </div>
+    <div>
+        <mat-card *ngIf="loading">
+            Loading....
+        </mat-card>
+        <section class="cards-row">
+            <app-items *ngFor='let el of todo' [el]='el' (onDelete)="onDelete(el.id)">
+            </app-items>
+        </section>
+    </div>
+</div>
